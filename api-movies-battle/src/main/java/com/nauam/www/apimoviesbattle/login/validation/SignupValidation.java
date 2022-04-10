@@ -1,4 +1,4 @@
-package com.nauam.www.apimoviesbattle.user.service.validation;
+package com.nauam.www.apimoviesbattle.login.validation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -8,10 +8,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Constraint(validatedBy = UserSaveValidation.class)
+import com.nauam.www.apimoviesbattle.login.service.SignupService;
+
+@Constraint(validatedBy = SignupService.class)
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UserSave {
+public @interface SignupValidation {
 	String message() default "Erro de validação";
 
 	Class<?>[] groups() default {};

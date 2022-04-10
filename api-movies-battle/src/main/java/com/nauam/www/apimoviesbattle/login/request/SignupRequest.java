@@ -1,9 +1,9 @@
-package com.nauam.www.apimoviesbattle.user.dto;
+package com.nauam.www.apimoviesbattle.login.request;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-import com.nauam.www.apimoviesbattle.user.service.validation.UserSave;
+import com.nauam.www.apimoviesbattle.login.validation.SignupValidation;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@UserSave
-public class UserDTO {
+@SignupValidation
+public class SignupRequest {
     
 	@NotEmpty(message = "Username - Preenchimento obrigatório.")
 	@Length(min = 5, max = 120, message = "Username está inválida.")

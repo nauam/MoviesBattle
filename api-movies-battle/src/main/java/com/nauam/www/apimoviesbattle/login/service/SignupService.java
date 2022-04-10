@@ -1,4 +1,4 @@
-package com.nauam.www.apimoviesbattle.user.service.validation;
+package com.nauam.www.apimoviesbattle.login.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,24 +7,25 @@ import java.util.Optional;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.nauam.www.apimoviesbattle.user.controller.exception.FieldMessage;
-import com.nauam.www.apimoviesbattle.user.dto.UserDTO;
+import com.nauam.www.apimoviesbattle.login.request.SignupRequest;
+import com.nauam.www.apimoviesbattle.login.validation.SignupValidation;
+import com.nauam.www.apimoviesbattle.message.response.FieldMessage;
 import com.nauam.www.apimoviesbattle.user.model.User;
 import com.nauam.www.apimoviesbattle.user.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserSaveValidation implements ConstraintValidator<UserSave, UserDTO> {
+public class SignupService implements ConstraintValidator<SignupValidation, SignupRequest> {
 
 	@Autowired
 	private UserRepository repository;
 
 	@Override
-	public void initialize(UserSave constraintAnnotation) {
+	public void initialize(SignupValidation constraintAnnotation) {
 	}
 
 	@Override
-	public boolean isValid(UserDTO userDto, ConstraintValidatorContext context) {
+	public boolean isValid(SignupRequest userDto, ConstraintValidatorContext context) {
 
 		List<FieldMessage> list = new ArrayList<>();
 

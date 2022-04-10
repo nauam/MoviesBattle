@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class IUserDetails implements UserDetails {
+public class LoggedInUser implements UserDetails {
 
     private final Optional<User> user;
 
     @Autowired
-    public IUserDetails(Optional<User> user) {
+    public LoggedInUser(Optional<User> user) {
         this.user = user;
     }
 
@@ -32,6 +32,14 @@ public class IUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return user.orElse(new User()).getUsername();
+    }
+
+    public String getEmail() {
+        return user.orElse(new User()).getEmail();
+    }
+
+    public Integer getId() {
+        return user.orElse(new User()).getId();
     }
 
     @Override

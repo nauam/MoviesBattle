@@ -1,4 +1,4 @@
-package com.nauam.www.apimoviesbattle.user.controller.exception;
+package com.nauam.www.apimoviesbattle.message.response;
 
 import java.io.Serializable;
 

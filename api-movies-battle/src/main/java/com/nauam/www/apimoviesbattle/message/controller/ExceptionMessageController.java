@@ -1,6 +1,9 @@
-package com.nauam.www.apimoviesbattle.user.controller.exception;
+package com.nauam.www.apimoviesbattle.message.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
+import com.nauam.www.apimoviesbattle.message.response.ExceptionMessage;
+import com.nauam.www.apimoviesbattle.message.response.StandardError;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,14 +13,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class ControllerExceptionHandler {
+public class ExceptionMessageController {
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<StandardError> validation(MethodArgumentNotValidException e, 
-			                                        HttpServletRequest request) {
-		ValidationError err = new ValidationError(HttpStatus.BAD_REQUEST.value(), 
-				                                  "Erro de validação", 
-				                                  System.currentTimeMillis());
+	public ResponseEntity<StandardError> validation(MethodArgumentNotValidException e, HttpServletRequest request) {
+		ExceptionMessage err = new ExceptionMessage(HttpStatus.BAD_REQUEST.value(), "Erro de validação", System.currentTimeMillis());
 		for (FieldError x : e.getBindingResult().getFieldErrors()) {
 			err.addError(x.getField(), x.getDefaultMessage());
 		}
