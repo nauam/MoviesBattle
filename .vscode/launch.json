@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiMoviesBattleApplication<api-movies-battle>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.nauam.www.apimoviesbattle.ApiMoviesBattleApplication",
+            "projectName": "api-movies-battle",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
