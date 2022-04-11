@@ -1,4 +1,4 @@
-package com.nauam.www.apimoviesbattle.login.security;
+package com.nauam.www.apimoviesbattle.security.jwt;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,13 +17,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-public class JWTValidationFilter extends BasicAuthenticationFilter {
+public class ValidationFilter extends BasicAuthenticationFilter {
 
     public static final String HEADER_ATTRIBUTE = "Authorization";
     public static final String ATTRIBUTE_PREFIX = "Bearer ";
     
     @Autowired
-    public JWTValidationFilter(AuthenticationManager authenticationManager) {
+    public ValidationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
 
@@ -47,7 +47,7 @@ public class JWTValidationFilter extends BasicAuthenticationFilter {
     }
 
     private UsernamePasswordAuthenticationToken getAuthenticationToken(String token) {
-        String user = JWT.require(Algorithm.HMAC512(JWTAuthenticationFilter.TOKEN_PASSWORD))
+        String user = JWT.require(Algorithm.HMAC512(AuthenticationFilter.TOKEN_PASSWORD))
             .build()
             .verify(token)
             .getSubject();

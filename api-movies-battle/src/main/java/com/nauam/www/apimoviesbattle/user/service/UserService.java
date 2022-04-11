@@ -1,11 +1,11 @@
 package com.nauam.www.apimoviesbattle.user.service;
 
-import com.nauam.www.apimoviesbattle.login.model.LoggedInUser;
 import com.nauam.www.apimoviesbattle.login.request.SigninRequest;
 import com.nauam.www.apimoviesbattle.login.request.SignupRequest;
+import com.nauam.www.apimoviesbattle.login.response.Response;
 import com.nauam.www.apimoviesbattle.login.response.SigninResponse;
-import com.nauam.www.apimoviesbattle.login.security.JWTAuthenticationFilter;
-import com.nauam.www.apimoviesbattle.message.response.FieldMessage;
+import com.nauam.www.apimoviesbattle.security.jwt.AuthenticationFilter;
+import com.nauam.www.apimoviesbattle.security.model.LoggedInUser;
 import com.nauam.www.apimoviesbattle.user.model.User;
 import com.nauam.www.apimoviesbattle.user.repository.UserRepository;
 
@@ -27,17 +27,16 @@ public class UserService {
         this.encoder = encoder;
     }
 
-	public FieldMessage register(SignupRequest obj) {
-		User user = new User(null, obj.getUsername(), obj.getEmail(), 
-				encoder.encode(obj.getPassword()), obj.getName(), obj.getPicture());
+	public Response register(SignupRequest obj) {
+		User user = new User(null, obj.getUsername(), obj.getEmail(), encoder.encode(obj.getPassword()));
 		repository.save(user);
-		return FieldMessage.builder().fieldName("Signup").message("Usuário cadastrado com sucesso!").build();
+		return Response.builder().message("Usuário cadastrado com sucesso!").build();
 	}
 
 	public SigninResponse authenticate(SigninRequest obj) {
-		Authentication authentication = JWTAuthenticationFilter.authentication(obj);
+		Authentication authentication = AuthenticationFilter.authentication(obj);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
-		String token = JWTAuthenticationFilter.token(authentication);
+		String token = AuthenticationFilter.token(authentication);
 	
 		LoggedInUser loggedInUser = (LoggedInUser) authentication.getPrincipal();
 

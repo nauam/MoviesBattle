@@ -7,9 +7,9 @@ import java.util.Optional;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import com.nauam.www.apimoviesbattle.handler.response.FieldMessage;
 import com.nauam.www.apimoviesbattle.login.request.SigninRequest;
 import com.nauam.www.apimoviesbattle.login.validation.SigninValidation;
-import com.nauam.www.apimoviesbattle.message.response.FieldMessage;
 import com.nauam.www.apimoviesbattle.user.model.User;
 import com.nauam.www.apimoviesbattle.user.repository.UserRepository;
 

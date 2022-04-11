@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class SignupRequest {
     
 	@NotEmpty(message = "Username - Preenchimento obrigatório.")
-	@Length(min = 5, max = 120, message = "Username está inválida.")
+	@Length(min = 3, max = 120, message = "Username está inválida.")
     private String username;
 
 	@NotEmpty(message = "Email - Preenchimento obrigatório.")
@@ -28,11 +28,5 @@ public class SignupRequest {
 	@NotEmpty(message = "Senha - Preenchimento obrigatório.")
 	@Length(min = 8, max = 120, message = "Senha está inválida.")
     private String password;
-
-	@NotEmpty(message = "Nome - Preenchimento obrigatório.")
-	@Length(min = 5, max = 120, message = "Nome está inválido.")
-    private String name;
-
-    private String picture;
     
 }

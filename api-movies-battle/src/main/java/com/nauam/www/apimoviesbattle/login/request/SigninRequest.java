@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class SigninRequest {
     
 	@NotEmpty(message = "Username - Preenchimento obrigatório.")
-	@Length(min = 5, max = 120, message = "Username está inválida.")
+	@Length(min = 3, max = 120, message = "Username está inválida.")
     private String username;
 
 	@NotEmpty(message = "Senha - Preenchimento obrigatório.")

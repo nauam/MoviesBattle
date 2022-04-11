@@ -1,6 +1,6 @@
-package com.nauam.www.apimoviesbattle.login.security;
+package com.nauam.www.apimoviesbattle.security.jwt;
 
-import com.nauam.www.apimoviesbattle.login.service.UserDetailsServiceImpl;
+import com.nauam.www.apimoviesbattle.security.service.LoggedInUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,13 +18,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
-public class JWTConfiguration extends WebSecurityConfigurerAdapter {
+public class Configurer extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsServiceImpl service;
+    private final LoggedInUserService service;
     private final PasswordEncoder encoder;
     
     @Autowired
-    public JWTConfiguration(UserDetailsServiceImpl service, PasswordEncoder encoder) {
+    public Configurer(LoggedInUserService service, PasswordEncoder encoder) {
         this.service = service;
         this.encoder = encoder;
     }
@@ -36,13 +36,14 @@ public class JWTConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests() //.disable() mudar a .enable() caso for para prod
+        http.csrf().disable().authorizeRequests() 
             .antMatchers(HttpMethod.POST, "/signin").permitAll()
             .antMatchers(HttpMethod.POST, "/signup").permitAll()
+            .antMatchers(HttpMethod.POST, "/imdb/**").permitAll()
             .anyRequest().authenticated()
             .and()
-            .addFilter(new JWTAuthenticationFilter(authenticationManager()))
-            .addFilter(new JWTValidationFilter(authenticationManager()))
+            .addFilter(new AuthenticationFilter(authenticationManager()))
+            .addFilter(new ValidationFilter(authenticationManager()))
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 

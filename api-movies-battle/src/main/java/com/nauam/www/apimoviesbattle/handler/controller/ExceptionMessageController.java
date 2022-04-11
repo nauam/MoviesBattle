@@ -1,9 +1,9 @@
-package com.nauam.www.apimoviesbattle.message.controller;
+package com.nauam.www.apimoviesbattle.handler.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.nauam.www.apimoviesbattle.message.response.ExceptionMessage;
-import com.nauam.www.apimoviesbattle.message.response.StandardError;
+import com.nauam.www.apimoviesbattle.handler.response.ExceptionMessage;
+import com.nauam.www.apimoviesbattle.handler.response.StandardError;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

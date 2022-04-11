@@ -1,6 +1,5 @@
-package com.nauam.www.apimoviesbattle.login.model;
+package com.nauam.www.apimoviesbattle.security.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -19,14 +18,8 @@ public class LoggedInUser implements UserDetails {
         this.user = user;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new ArrayList<>();
-    }
-
-    @Override
-    public String getPassword() {
-        return user.orElse(new User()).getPassword();
+    public Integer getId() {
+        return user.orElse(new User()).getId();
     }
 
     @Override
@@ -34,12 +27,18 @@ public class LoggedInUser implements UserDetails {
         return user.orElse(new User()).getUsername();
     }
 
+    @Override
+    public String getPassword() {
+        return user.orElse(new User()).getPassword();
+    }
+
     public String getEmail() {
         return user.orElse(new User()).getEmail();
     }
-
-    public Integer getId() {
-        return user.orElse(new User()).getId();
+    
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     @Override
@@ -61,4 +60,5 @@ public class LoggedInUser implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

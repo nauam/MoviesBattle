@@ -31,9 +31,5 @@ public class User {
 
     @JsonProperty(access = Access.WRITE_ONLY)
     private String password;
-
-    private String name;
-
-    private String picture;
     
 }

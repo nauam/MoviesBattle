@@ -1,4 +1,4 @@
-package com.nauam.www.apimoviesbattle.message.response;
+package com.nauam.www.apimoviesbattle.handler.response;
 
 import java.io.Serializable;
 
