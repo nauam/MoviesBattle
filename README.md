@@ -23,11 +23,11 @@
 
 :small_blue_diamond: [Login](#login)
 
-:small_blue_diamond: [Lista de filmes (Somente quem estiver autenticado)](#lista-de-filmes-(somente-quem-estiver-autenticado))
+:small_blue_diamond: [Listar Filmes](#listar-filmes)
 
-:small_blue_diamond: [Desenvolvimento para concluir o projeto Movies Battle](#desenvolvimento-para-concluir-o-projeto-movies-battle)
+:small_blue_diamond: [Como concluir o projeto](#como-concluir-o-projeto)
 
-:small_blue_diamond: [conclusão](#conclusao)
+:small_blue_diamond: [Conclusão](#conclusao)
 
 :small_blue_diamond: [Licença](#licenca)
 
@@ -93,7 +93,7 @@
 
 ## Como rodar a aplicação :arrow_forward:
 
-### clone o projeto:
+### clone o projeto
 
 ```
 git clone https://github.com/nauam/MoviesBattle.git
@@ -210,7 +210,7 @@ Caso ocorra algum erro de validação irá aparecer:
 </details>
 
 
-## Lista de filmes (Somente quem estiver autenticado):
+## Listar filmes:
 
 ```localhost:8080/imdb/list```
 
@@ -245,7 +245,7 @@ Caso ocorra como esperado:
 
 </details>
 
-## Desenvolvimento para concluir o projeto Movies Battle
+## Como concluir o projeto:
 
 O projeto conta com a funcionalidade de encriptar a senha dos usuário para salvar no banco de dados, isso permite que haja uma segurança maior. 
 
@@ -364,7 +364,7 @@ Devido ao tempo, não foi implementado os testes unitários na aplicação, o te
 Essa aplicação me fez/fará colocar bastante teória em prátrica e também colocar bastante coisas que eu vejo no meu dia a dia como desenvolvedor em um projeto totalmente novo. 
 
 
-## Licença 
+## Licença
 
 The [GNU General Public License v3.0]()
 
