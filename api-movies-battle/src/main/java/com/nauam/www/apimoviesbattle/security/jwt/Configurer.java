@@ -39,7 +39,6 @@ public class Configurer extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests() 
             .antMatchers(HttpMethod.POST, "/signin").permitAll()
             .antMatchers(HttpMethod.POST, "/signup").permitAll()
-            .antMatchers(HttpMethod.POST, "/imdb/**").permitAll()
             .anyRequest().authenticated()
             .and()
             .addFilter(new AuthenticationFilter(authenticationManager()))
